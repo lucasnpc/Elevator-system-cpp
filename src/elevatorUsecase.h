@@ -1,19 +1,20 @@
 #include "elevator.h"
 #include <map>
 #include <string>
-
+#include <deque>
 
 class ElevatorUsecase
 {
     std::map<std::string, Elevator> elevators;
+    std::map<std::string, std::deque<int>> elevatorCalls;
     const int maxFloors = 32;
 public:
-    ElevatorUsecase();
-    ~ElevatorUsecase();
-    void AddElevator(std::string& elevatorId, float& maxWeight);
-    void GetElevatorStatus(std::string& elevatorId);
-    void CallElevator(std::string& elevatorId, int& floor);
-    void EnterElevator(std::string& elevatorId, float& totalWeightIn, int& floorTo);
-    void ExitElevator(std::string& elevatorId, float& totalWeightOut);
-    void Continue(std::string& elevatorId);
+    ElevatorUsecase() {};
+    ~ElevatorUsecase() {};
+    void AddElevator(std::string& id, float& maxWeight);
+    void Status(std::string& id);
+    void CallElevator(std::string& id, int& floor);
+    void EnterElevator(std::string& id, float& totalWeightIn, int& fromFloor);
+    void ExitElevator(std::string& id, float& totalWeightOut);
+    void Continue(std::string& id);
 };

@@ -38,17 +38,18 @@ int main()
                     usecase.AddElevator(elevatorId, maxWeight);
                 }
                 else if (command == statusCommand) {
-                    usecase.GetElevatorStatus(elevatorId);
+                    usecase.Status(elevatorId);
                 }
                 else if (command == callCommand) {
                     int floor;
+                    stream >> floor;
                     usecase.CallElevator(elevatorId, floor);
                 }
                 else if (command == enterCommand) {
                     float enteringWeight;
-                    int toFloor;
-                    stream >> enteringWeight >> toFloor;
-                    usecase.EnterElevator(elevatorId, enteringWeight, toFloor);
+                    int fromFloor;
+                    stream >> enteringWeight >> fromFloor;
+                    usecase.EnterElevator(elevatorId, enteringWeight, fromFloor);
                 }
                 else if (command == exitCommand) {
                     float exitingWeight;
