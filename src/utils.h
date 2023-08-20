@@ -1,11 +1,11 @@
 #include <string>
 #include <algorithm>
 
-static const std::string addCommand = "add-elevator";
+static const std::string addCommand = "add";
 static const std::string statusCommand = "status";
-static const std::string callCommand = "call-elevator";
-static const std::string enterCommand = "enter-elevator";
-static const std::string exitCommand = "exit-elevator";
+static const std::string callCommand = "call";
+static const std::string enterCommand = "enter";
+static const std::string leaveCommand = "leave";
 static const std::string continueCommand = "continue";
 
 bool isUserInputValid(std::string input) {

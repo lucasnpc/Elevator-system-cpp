@@ -18,19 +18,20 @@ void ElevatorUsecase::Status(std::string& id) {
         std::cout << "Failure->Elevator doesnt exists" << "\n";
         return;
     }
-    int currentFloor = elevators[id].GetCurrentFloor();
-    if (!elevators[id].IsMoving())
+    Elevator elevator = elevators[id];
+    if (!elevator.IsMoving())
     {
-        std::cout << "status " << id << "-> stationary " << currentFloor << "\n";
+        std::cout << "status " << id << "-> stationary " << elevator.GetCurrentFloor()
+            << " current Weight " << elevator.GetCurrentWeight() << "\n";
         return;
     }
-    if (elevators[id].GetPreviousFloor() < elevatorCalls[id].front())
+    if (elevator.GetPreviousFloor() < elevatorCalls[id].front())
     {
-        std::cout << "status " << id << "-> moving up " << elevators[id].GetPreviousFloor()
+        std::cout << "status " << id << "-> moving up " << elevator.GetPreviousFloor()
             << " to " << elevatorCalls[id].front() << "\n";
     }
     else {
-        std::cout << "status " << id << "-> moving down " << elevators[id].GetPreviousFloor()
+        std::cout << "status " << id << "-> moving down " << elevator.GetPreviousFloor()
             << " to " << elevatorCalls[id].front() << "\n";
     }
 }
@@ -45,21 +46,28 @@ void ElevatorUsecase::CallElevator(std::string& id, int& floor) {
     std::cout << "Success->Call elevator " << floor << "\n";
 }
 
-void ElevatorUsecase::EnterElevator(std::string& id, float& totalWeightIn, int& fromFloor) {
+void ElevatorUsecase::EnterElevator(std::string& id, float& totalWeightIn, int& fromFloor, int& toFloor) {
     if (elevators.find(id) == elevators.end())
     {
         std::cout << "Failure->Elevator doesnt exists" << "\n";
         return;
     }
-    int currentFloor = elevators[id].GetCurrentFloor();
-    if (currentFloor != fromFloor)
+    Elevator elevator = elevators[id];
+    if (elevator.GetCurrentFloor() != fromFloor)
     {
         std::cout << "Failure->Elevator isnt in your floor" << "\n";
         return;
     }
-    if (currentFloor == fromFloor) {
+    if ((totalWeightIn + elevator.GetCurrentWeight()) > elevator.GetMaxWeight())
+    {
+        std::cout << "Failure->Elevator is exceding its max weight" << "\n";
+        return;
+    }
+
+    if (elevator.GetCurrentFloor() == fromFloor) {
         elevators[id].AddCurrentWeight(totalWeightIn);
-        elevatorCalls[id].pop_back();
+        elevatorCalls[id].pop_front();
+        elevatorCalls[id].emplace_back(toFloor);
         std::cout << "Success->Entered in the elevator with " << totalWeightIn << " weight" << "\n";
     }
     else {
@@ -73,8 +81,14 @@ void ElevatorUsecase::ExitElevator(std::string& id, float& totalWeightOut) {
         std::cout << "Failure->Elevator doesnt exists" << "\n";
         return;
     }
-    elevators[id].RemoveCurrentWeight(totalWeightOut);
+    Elevator* elevator = &elevators[id];
+    if (elevator->GetCurrentWeight() <= 0) {
+        std::cout << "Failure->Elevator is empty" << "\n";
+        return;
+    }
+    elevator->RemoveCurrentWeight(totalWeightOut);
     std::cout << "Success->Exit Elevator with " << totalWeightOut << " weight" << "\n";
+    elevator = nullptr;
 }
 
 void ElevatorUsecase::Continue(std::string& id) {
@@ -84,19 +98,23 @@ void ElevatorUsecase::Continue(std::string& id) {
         return;
     }
     int nextFloorToStop = elevatorCalls[id].front();
-    if (elevators[id].GetCurrentFloor() == nextFloorToStop)
-    {
-        elevators[id].StopMoving();
-    }
-    elevators[id].SetPreviousFloor(elevators[id].GetCurrentFloor());
-    while (elevators[id].GetCurrentFloor() != nextFloorToStop) {
-        if (elevators[id].GetCurrentFloor() > nextFloorToStop)
+    Elevator* elevator = &elevators[id];
+
+    elevator->SetPreviousFloor(elevator->GetCurrentFloor());
+    while (true) {
+        if (elevator->GetCurrentFloor() == nextFloorToStop)
         {
-            elevators[id].MovingDown();
+            elevator->StopMoving();
+            break;
+        }
+        if (elevator->GetCurrentFloor() > nextFloorToStop)
+        {
+            elevator->MovingDown();
         }
         else {
-            elevators[id].MovingUp();
+            elevator->MovingUp();
         }
     }
     std::cout << "Continue " << id << "\n";
+    elevator = nullptr;
 }

@@ -14,7 +14,7 @@ public:
     void AddElevator(std::string& id, float& maxWeight);
     void Status(std::string& id);
     void CallElevator(std::string& id, int& floor);
-    void EnterElevator(std::string& id, float& totalWeightIn, int& fromFloor);
+    void EnterElevator(std::string& id, float& totalWeightIn, int& fromFloor, int& toFloor);
     void ExitElevator(std::string& id, float& totalWeightOut);
     void Continue(std::string& id);
 };
