@@ -1,6 +1,6 @@
 # Hello, this is my solution for the Elevator System Challenge
 
-This is a challenge you can find [here](https://drive.google.com/file/d/1EF5aWV69ed46AmR7SU4RcbjqiKRvY6mE/view). I've reached to this description through a suggestion an instructor from Udacity gave to me.
+This is a challenge you can find [here](https://drive.google.com/file/d/1EF5aWV69ed46AmR7SU4RcbjqiKRvY6mE/view). I've reached to this challenge through a suggestion an instructor from Udacity gave to me.
 
 <img src="elevator.gif">
 
