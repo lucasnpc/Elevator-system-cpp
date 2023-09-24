@@ -1,5 +1,7 @@
 #include "elevatorUsecase.h"
 #include <iostream>
+#include <thread>
+#include <chrono>
 
 void ElevatorUsecase::AddElevator(std::string& id, float& maxWeight) {
     if (elevators.find(id) == elevators.end() && !(elevators.size() > maxFloors))
@@ -102,6 +104,7 @@ void ElevatorUsecase::Continue(std::string& id) {
 
     elevator->SetPreviousFloor(elevator->GetCurrentFloor());
     while (true) {
+        std::this_thread::sleep_for(std::chrono::milliseconds(800));
         if (elevator->GetCurrentFloor() == nextFloorToStop)
         {
             elevator->StopMoving();
