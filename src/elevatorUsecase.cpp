@@ -109,9 +109,11 @@ void ElevatorUsecase::Continue(std::string& id) {
         }
         if (elevator->GetCurrentFloor() > nextFloorToStop)
         {
+            std::cout << id << " Moving down from " << elevator->GetCurrentFloor() << " to " << nextFloorToStop << "\n";
             elevator->MovingDown();
         }
         else {
+            std::cout << id << " Moving up from " << elevator->GetCurrentFloor() << " to " << nextFloorToStop << "\n";
             elevator->MovingUp();
         }
     }

@@ -48,5 +48,6 @@
         "typeinfo": "cpp",
         "sstream": "cpp",
         "map": "cpp"
-    }
+    },
+    "C_Cpp.errorSquiggles": "enabled"
 }
