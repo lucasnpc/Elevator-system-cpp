@@ -1,6 +1,13 @@
-# Hello, this is my solution for the Elevator System Challenge
+# About the Elevator System Challenge
 
-This is a challenge you can find [here](https://drive.google.com/file/d/1EF5aWV69ed46AmR7SU4RcbjqiKRvY6mE/view). I've reached to this challenge through a suggestion an instructor from Udacity gave to me.
+This is a challenge you can find in this [link](https://drive.google.com/file/d/1EF5aWV69ed46AmR7SU4RcbjqiKRvY6mE/view).
+The description of the challenge is basically the following:
+* Create via command line the simulation of a real life elevator
+* Let the user be able to create elevators and attach a maximum weight capability to it
+* Permit the user to call an elevator in a given floor
+* Permit the user enters the elevator with a given weight
+* Permit the user leaves the elevator with a given weight
+* Notify the user about the status of the elevator (stopped, moving down/up)
 
 <img src="elevator.gif">
 
