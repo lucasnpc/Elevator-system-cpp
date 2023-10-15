@@ -1,5 +1,4 @@
 #include <string>
-#include <algorithm>
 
 static const std::string addCommand = "add";
 static const std::string statusCommand = "status";
