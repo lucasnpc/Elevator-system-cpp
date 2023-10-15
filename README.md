@@ -12,6 +12,14 @@ The description of the challenge is basically the following:
 
 <img src="elevator.gif">
 
+## Technologies/Data Structures used in this challenge
+* Deque (Data structure to works with queues)
+* String (Data structure to hold a vector of chars)
+* Map (key value)
+* Cmake and Make (to build the project)
+* String Stream (to extract values from strings)
+* OOP
+
 ## Dependencies for Running Locally
 * cmake >= 3.7
   * All OSes: [click here for installation instructions](https://cmake.org/install/)
