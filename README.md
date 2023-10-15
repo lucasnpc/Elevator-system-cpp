@@ -8,6 +8,7 @@ The description of the challenge is basically the following:
 * Permit the user enters the elevator with a given weight
 * Permit the user leaves the elevator with a given weight
 * Notify the user about the status of the elevator (stopped, moving down/up)
+* Continue the elevator movement to the next floor that was called (I've used thread.sleep to simulate its phisical movement)
 
 <img src="elevator.gif">
 
