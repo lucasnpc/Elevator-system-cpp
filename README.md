@@ -1,5 +1,7 @@
 # About the Elevator System Challenge
 
+<img src="elevator.gif">
+
 This is a challenge you can find in this [link](https://drive.google.com/file/d/1EF5aWV69ed46AmR7SU4RcbjqiKRvY6mE/view).
 The description of the challenge is basically the following:
 * Create via command line the simulation of a real life elevator
@@ -9,8 +11,6 @@ The description of the challenge is basically the following:
 * Permit the user leaves the elevator with a given weight
 * Notify the user about the status of the elevator (stopped, moving down/up)
 * Continue the elevator movement to the next floor that was called (I've used thread.sleep to simulate its phisical movement)
-
-<img src="elevator.gif">
 
 ## Technologies/Data Structures used in this challenge
 * Deque (Data structure to works with queues)
