@@ -1,24 +1,18 @@
 # About the Elevator System Challenge
 
+This is a challenge you can find in this [link](https://drive.google.com/file/d/1EF5aWV69ed46AmR7SU4RcbjqiKRvY6mE/view).
+
 <img src="elevator.gif">
 
-This is a challenge you can find in this [link](https://drive.google.com/file/d/1EF5aWV69ed46AmR7SU4RcbjqiKRvY6mE/view).
-The description of the challenge is basically the following:
-* Create via command line the simulation of a real life elevator
-* Let the user be able to create elevators and attach a maximum weight capability to it
+The elevator system code creates the following features:
+* Create an elevator giving it a maximum weight capability
 * Permit the user to call an elevator in a given floor
 * Permit the user enters the elevator with a given weight
 * Permit the user leaves the elevator with a given weight
 * Notify the user about the status of the elevator (stopped, moving down/up)
 * Continue the elevator movement to the next floor that was called (I've used thread.sleep to simulate its phisical movement)
 
-## Technologies/Data Structures used in this challenge
-* Deque (Data structure to works with queues)
-* String (Data structure to hold a vector of chars)
-* Map (key value)
-* Cmake and Make (to build the project)
-* String Stream (to extract values from strings)
-* OOP
+The technologies in use in this program are described below.
 
 ## Dependencies for Running Locally
 * cmake >= 3.7
@@ -38,3 +32,11 @@ The description of the challenge is basically the following:
 2. Run the following command on root directory of the project `mkdir build && cd build`.
 3. Inside build directory compile and generate its executable with `cmake .. && make`.
 4. Run it: `./Elevator`.
+
+## Technologies/Data Structures used in this challenge
+* Deque (Data structure to works with queues)
+* String (Data structure to hold a vector of chars)
+* Map (key value)
+* Cmake and Make (to build the project)
+* String Stream (to extract values from strings)
+* OOP
